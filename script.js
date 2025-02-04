@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         
         if (!isMobile) {
-            alert('من فضلك استخدم هاتفك المحمول للانضمام');
+            alert('من فضلك استخدم الموبايل عشان تقدر تنضم معانا');
             return;
         }
         
