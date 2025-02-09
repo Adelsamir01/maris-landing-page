@@ -45,46 +45,92 @@
 <body>
     <div class="container">
         <main>
-            <div class="gif-container">
-                <img src="maris.webp" alt="Maris AI Animation" class="maris-gif">
+            <!-- Welcome Screen -->
+            <div class="screen" id="welcome-screen">
+                <div class="gif-container">
+                    <img src="maris.webp" alt="Maris AI Animation" class="maris-gif">
+                </div>
+                <h1>هل أنت مستعد لتشكيل مستقبل تعلم اللغات؟</h1>
+                <p class="subtitle">خوض مغامرة ممتعة مع Maris AI واكتشف دورك في تطوير أفضل مدرب لغة ذكي!</p>
+                <button id="startQuizButton" class="primary-button">ابدأ المغامرة 🚀</button>
             </div>
-            <h1>انضم معانا في تجربة Maris AI</h1>
-            <p class="subtitle">ساعدنا نطور مستقبل تعليم اللغات مع مدرب اللغة الذكي </p>
-            
-            <button id="joinButton" class="join-button">انضم دلوقتي</button>
 
-            <div class="tester-guide">
-                <h2>هتعمل ايه معانا؟ 🤔</h2>
-                <div class="guide-steps">
-                    <p>١. جرب تتكلم مع Maris 🗣️</p>
-                    <p>٢. قولنا رأيك بصراحة 💭</p>
-                    <p>٣. ساعدنا نحسن التطبيق ✨</p>
+            <!-- Quiz Container -->
+            <div class="screen" id="quiz-container" style="display: none;">
+                <div class="quiz-progress">
+                    <div class="progress-text">السؤال <span id="currentQuestionNumber">1</span> من 4</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+                
+                <!-- Question 1 -->
+                <div class="question" id="q1">
+                    <h2>كيف تحب تتعلم لغة جديدة؟ 🎯</h2>
+                    <div class="options">
+                        <button class="option-button" onclick="selectOption(this)">بحب أتكلم على طول وأتعلم من أخطائي</button>
+                        <button class="option-button" onclick="selectOption(this)">بفضل أفهم القواعد الأول وبعدين أتكلم</button>
+                        <button class="option-button" onclick="selectOption(this)">بحب أتعلم من خلال المحادثة والتفاعل</button>
+                        <button class="option-button" onclick="selectOption(this)">بحب أجرب طرق مختلفة للتعلم</button>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question" id="q2" style="display: none;">
+                    <h2>كم من الوقت ممكن تخصصه أسبوعياً للتجربة؟ ⏰</h2>
+                    <div class="options">
+                        <button class="option-button" onclick="selectOption(this)">ساعة أو أقل</button>
+                        <button class="option-button" onclick="selectOption(this)">2-3 ساعات</button>
+                        <button class="option-button" onclick="selectOption(this)">4-5 ساعات</button>
+                        <button class="option-button" onclick="selectOption(this)">أكثر من 5 ساعات</button>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question" id="q3" style="display: none;">
+                    <h2>إزاي بتحب تشارك رأيك؟ 💭</h2>
+                    <div class="options">
+                        <button class="option-button" onclick="selectOption(this)">تقييم سريع ومباشر</button>
+                        <button class="option-button" onclick="selectOption(this)">تقارير مفصلة عن التجربة</button>
+                        <button class="option-button" onclick="selectOption(this)">مناقشات جماعية مع المطورين</button>
+                        <button class="option-button" onclick="selectOption(this)">اقتراحات وأفكار جديدة</button>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question" id="q4" style="display: none;">
+                    <h2>إيه هدفك من تعلم اللغات؟ 🎯</h2>
+                    <div class="options">
+                        <button class="option-button" onclick="selectOption(this)">السفر والتواصل مع ناس جديدة</button>
+                        <button class="option-button" onclick="selectOption(this)">تطوير مهاراتي المهنية</button>
+                        <button class="option-button" onclick="selectOption(this)">حب الثقافات المختلفة</button>
+                        <button class="option-button" onclick="selectOption(this)">التحدي الشخصي والتعلم</button>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button id="prevButton" class="nav-button" style="display: none;">السابق</button>
+                    <button id="nextButton" class="nav-button">التالي</button>
                 </div>
             </div>
 
-            <div class="benefits-section">
-                <h2>المميزات اللي هتاخدها 🎉</h2>
-                <div class="benefits">
-                    <div class="benefit-item">
-                        <span>💬</span>
-                        <p>هتجرب التطبيق قبل اي حد</p>
-                    </div>
-                    <div class="benefit-item">
-                        <span>🎁</span>
-                        <p>مميزات حصرية مجانية</p>
-                    </div>
-                    <div class="benefit-item">
-                        <span>🌱</span>
-                        <p>هتساعدنا نطور التطبيق</p>
-                    </div>
-                    <div class="benefit-item">
-                        <span>👥</span>
-                        <p>هتنضم لمجتمع ناس زيك مهتمة باللغات</p>
+            <!-- Results Screen -->
+            <div class="screen" id="results-screen" style="display: none;">
+                <h2>مبروك! 🎉</h2>
+                <div class="result-type">
+                    <h3 id="resultTitle">أنت [نوع المختبر المثالي]</h3>
+                    <p id="resultDescription">وصف مخصص بناءً على إجاباتك</p>
+                </div>
+
+                <div class="benefits-section">
+                    <h3>مميزاتك الخاصة 🌟</h3>
+                    <div class="benefits" id="personalizedBenefits">
+                        <!-- Benefits will be populated based on quiz answers -->
                     </div>
                 </div>
-            </div>
 
-            <p class="impact-text">رأيك هيفرق معانا كتير! 💙</p>
+                <button id="joinNowButton" class="primary-button">انضم للفريق الآن ✨</button>
+            </div>
         </main>
         <footer>
             <p>كل الحقوق محفوظة © ٢٠٢٥ Maris AI</p>
