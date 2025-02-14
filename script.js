@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Check if user is on iOS and redirect if needed
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const currentPath = window.location.pathname;
+    
+    if (isIOS && currentPath !== '/ios.html') {
+        window.location.href = '/ios.html';
+        return;
+    }
+    
     // Track quiz start
     const startQuizButton = document.getElementById('startQuizButton');
     const welcomeScreen = document.getElementById('welcome-screen');
@@ -189,7 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
     joinNowButton.addEventListener('click', () => {
         // Detect mobile device
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
         
         // Track join attempt
         gtag('event', 'join_click', {
