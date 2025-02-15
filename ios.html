@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,12 +39,18 @@
             padding: 20px;
             margin: 20px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            text-align: center; /* Changed from right to center */
+            text-align: center;
         }
         
         .step h3 {
             color: #333;
             margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .step p {
+            text-align: center;
+            margin-bottom: 15px;
         }
         
         .step-button {
@@ -57,6 +63,8 @@
             margin: 10px 0;
             font-weight: bold;
             transition: background-color 0.3s;
+            min-width: 200px;
+            text-align: center;
         }
         
         .step-button:hover {
@@ -67,6 +75,27 @@
             font-size: 0.9em;
             color: #666;
             margin-top: 20px;
+            text-align: center;
+        }
+
+        .important-note {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #856404;
+            text-align: center;
+        }
+
+        footer p {
+            text-align: center;
+        }
+
+        .arrow-down {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #007AFF;
         }
     </style>
 </head>
@@ -88,10 +117,16 @@
                         تحميل TestFlight
                     </a>
                 </div>
+
+                <div class="important-note">
+                    بعد تثبيت TestFlight، عُد إلى هذه الصفحة واضغط على الزر أدناه
+                </div>
+
+                <div class="arrow-down">⬇️</div>
                 
                 <div class="step">
                     <h3>الخطوة الثانية: تثبيت Maris AI</h3>
-                    <p>بعد تثبيت TestFlight، اضغط على الزر التالي لإضافة Maris AI إلى TestFlight والبدء في تجربته.</p>
+                    <p>اضغط على الزر التالي وسيتم فتح Maris AI تلقائياً في تطبيق TestFlight</p>
                     <a href="itms-beta://testflight.apple.com/join/CFf66wTx" class="step-button" target="_blank">
                         تثبيت Maris AI
                     </a>
@@ -103,7 +138,7 @@
             </div>
         </main>
         <footer>
-            <p style="text-align: center;">كل الحقوق محفوظة © ٢٠٢٥ Maris AI</p>
+            <p>كل الحقوق محفوظة © ٢٠٢٥ Maris AI</p>
         </footer>
     </div>
 </body>
