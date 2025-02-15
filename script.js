@@ -1,10 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if user is on iOS and redirect if needed
+    // Check device type and redirect if needed
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const isAndroid = /Android/i.test(navigator.userAgent);
     const currentPath = window.location.pathname;
     
     if (isIOS && currentPath !== '/ios.html') {
         window.location.href = '/ios.html';
+        return;
+    }
+    
+    if (isAndroid && currentPath !== '/android.html') {
+        window.location.href = '/android.html';
         return;
     }
     
