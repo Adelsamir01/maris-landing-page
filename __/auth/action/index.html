@@ -92,6 +92,8 @@
             const openAppButton = document.getElementById('open-app-button');
             const spinner = document.getElementById('spinner');
 
+            console.log("URL parameters:", { mode, oobCode });
+
             if (!mode || !oobCode) {
                 title.textContent = 'خطأ';
                 message.textContent = 'عذراً، الرابط غير صالح.';
@@ -109,8 +111,12 @@
                 message.textContent = 'جاري تجهيز إعادة تعيين كلمة المرور...';
             }
 
-            // Set up the custom scheme URL
-            const customScheme = `marisai://auth/${mode === 'verifyEmail' ? 'verify' : 'reset-password'}?oobCode=${oobCode}`;
+            // Set up the custom scheme URL - simplified format that matches our updated handler
+            // Use just 'verify' or 'reset-password' after auth/
+            const action = mode === 'verifyEmail' ? 'verify' : 'reset-password';
+            const customScheme = `marisai://auth/${action}?oobCode=${oobCode}`;
+            
+            console.log("Generated custom scheme URL:", customScheme);
             
             // Set up the button
             openAppButton.href = customScheme;
@@ -122,6 +128,7 @@
                 
                 // Try to open the app using the custom scheme
                 setTimeout(() => {
+                    console.log("Attempting to open app with:", customScheme);
                     window.location.href = customScheme;
                 }, 500);
             }
