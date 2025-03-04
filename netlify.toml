@@ -1,6 +1,17 @@
 [build]
   publish = "."
 
+[[headers]]
+  for = "/.well-known/apple-app-site-association"
+  [headers.values]
+    Content-Type = "application/json"
+    Cache-Control = "public, max-age=300"
+
+[[redirects]]
+  from = "/__/auth/action"
+  to = "/__/auth/action/index.html"
+  status = 200
+
 [[redirects]]
   from = "/ios"
   to = "/ios.html"

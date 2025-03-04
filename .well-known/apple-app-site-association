@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "NFS64TL5W6.com.maris-ai.maris",
+        "paths": ["/__/auth/action*"]
+      }
+    ]
+  }
+} 
